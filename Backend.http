@@ -1,0 +1,29 @@
+@Backend_HostAddress = http://localhost:5051
+@Backend_HostAddress = https://localhost:7278
+@Backend_HostAddress = https://kristianapi.azurewebsites.net
+@Token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJsb2dpbiIsImp0aSI6ImEwM2MzMDI0LTdlMzItNGRkNy05ZTg4LWU1NGU3ZmE1NTdjOSIsImV4cCI6MTcyNTQ1NDgyMCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDUxLyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTA1MS8ifQ.xOo5GzR_ETiVsXP9WCnDDQ_1_yx3oQT_nvK7WwQAxSc
+
+###
+POST {{Backend_HostAddress}}/api/Book/Add HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{Token}}
+
+{
+  "title": "Testbok",
+  "firstName": "Kristian",
+  "surName": " Väisänen",
+  "publicationDate": "2024-01-04",
+  "bookType": "Bunden"
+}
+###
+
+GET {{Backend_HostAddress}}/api/Book/GetAll HTTP/1.1
+Authorization: Bearer {{Token}}
+
+###
+
+PUT {{Backend_HostAddress}}/api/Book/Update HTTP/1.1
+Authorization: Bearer {{Token}}
+Content-Type: application/json
+
+{"Id":2,"Title":"It","FirstName":"Stephen","SurName":"King","BookType":"Pocket","NoOfPages":250,"PublicationDate":"1977-01-01"}
